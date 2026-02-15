@@ -1,0 +1,14 @@
+.avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover; // Quan trọng để ảnh không bị méo
+    border: 2px solid #c73838;
+    margin-top: 50px;
+}
+
+.video-preview video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; // Video sẽ phủ kín thẻ card
+}
