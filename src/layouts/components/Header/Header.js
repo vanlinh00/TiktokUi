@@ -117,10 +117,10 @@ function Header() {
                                 </button>
                             </Tippy>
                             <Tippy delay={[0, 50]} content="Inbox" placement="bottom">
-                                <button className={cx('action-btn')}>
+                                <Link to={config.routes.chat} className={cx('action-btn')}>
                                     <InboxIcon />
                                     <span className={cx('badge')}>12</span>
-                                </button>
+                                </Link>
                             </Tippy>
                         </>
                     ) : (

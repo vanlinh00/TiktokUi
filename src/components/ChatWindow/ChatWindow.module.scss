@@ -1,0 +1,71 @@
+.window {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+.name {
+    font-weight: 500;
+}
+
+.messages {
+    flex: 1;
+    padding: 8px;
+    overflow-y: auto;
+}
+
+.input-area {
+    display: flex;
+    padding: 8px;
+    border-top: 1px solid #ddd;
+}
+
+.input-area input {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 16px;
+    margin-right: 8px;
+}
+
+.input-area button {
+    padding: 8px 16px;
+    background-color: #1976d2;
+    color: white;
+    border: none;
+    border-radius: 16px;
+    cursor: pointer;
+}
+
+.bubble {
+    max-width: 60%;
+    padding: 8px 12px;
+    border-radius: 16px;
+    margin-bottom: 8px;
+    word-break: break-word;
+}
+
+.bubble.other {
+    background-color: #e5e5ea;
+    align-self: flex-start;
+}
+
+.bubble.own {
+    background-color: #1976d2;
+    color: white;
+    align-self: flex-end;
+}

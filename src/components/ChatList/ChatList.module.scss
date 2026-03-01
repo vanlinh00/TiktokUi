@@ -1,0 +1,52 @@
+.list {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    flex: 1;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    cursor: pointer;
+}
+
+.item:hover {
+    background-color: #f5f5f5;
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.details {
+    flex: 1;
+    margin-left: 8px;
+    overflow: hidden;
+}
+
+.name {
+    font-weight: 500;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.last {
+    font-size: 12px;
+    color: #666;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.badge {
+    background-color: #1976d2;
+    color: white;
+    border-radius: 12px;
+    padding: 2px 6px;
+    font-size: 12px;
+}
