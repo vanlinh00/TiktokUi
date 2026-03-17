@@ -7,6 +7,7 @@ const routes = {
     live: '/live',
     newHome: '/new-home',
     chat: '/chat',
+    watch: '/watch',
 };
 
 export default routes;

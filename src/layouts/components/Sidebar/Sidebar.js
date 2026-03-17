@@ -26,6 +26,7 @@ function Sidebar() {
                     activeIcon={<UserGroupActiveIcon />}
                 />
                 <MenuItem title="LIVE" to={config.routes.live} icon={<LiveIcon />} activeIcon={<LiveActiveIcon />} />
+                <MenuItem title="Watch" to={config.routes.watch} icon={<LiveIcon />} activeIcon={<LiveActiveIcon />} />
             </Menu>
 
             <SuggestedAccounts label="Suggested accounts" />

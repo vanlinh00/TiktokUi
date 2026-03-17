@@ -12,6 +12,7 @@ import Search from '~/pages/Search';
 import Live from '~/pages/Home/Live';
 import NewHome from '~/pages/NewHome';
 import Chat from '~/pages/Chat';
+import Watch from '~/pages/Watch';
 
 // Public routes
 const publicRoutes = [
@@ -23,6 +24,9 @@ const publicRoutes = [
     { path: config.routes.search, component: Search, layout: null },
     { path: config.routes.newHome, component: NewHome },
     { path: config.routes.chat, component: Chat },
+    { path: config.routes.watch, component: Watch, layout: null },
+    // Alias (in case someone uses old-style URL)
+    { path: '/pages/Watch', component: Watch, layout: null },
 ];
 
 const privateRoutes = [];
