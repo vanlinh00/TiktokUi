@@ -1,7 +1,5 @@
 .wrapper {
     min-height: 100vh;
-    background-color: #050505;
-    color: #fff;
 }
 
 .container {
@@ -18,4 +16,5 @@
     flex: 1;
     min-height: calc(100vh - var(--default-layout-header-height));
     padding-bottom: 40px;
+    background-color: #050505;
 }
