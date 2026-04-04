@@ -1,0 +1,21 @@
+.wrapper {
+    min-height: 100vh;
+    background-color: #050505;
+    color: #fff;
+}
+
+.container {
+    width: var(--default-layout-width);
+    max-width: 100%;
+    padding: 0 var(--default-layout-horizontal-spacer);
+    margin-top: var(--default-layout-header-height);
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.content {
+    flex: 1;
+    min-height: calc(100vh - var(--default-layout-header-height));
+    padding-bottom: 40px;
+}

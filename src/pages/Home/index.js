@@ -1,5 +1,6 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Video from '~/components/Video';
+import Button from '~/components/Button';
 import classNames from 'classnames/bind';
 import styles from './Home.module.scss';
 
@@ -56,22 +57,7 @@ const MOCK_VIDEOS = [
 ];
 
 function Home() {
-    const [videos, setVideos] = useState(MOCK_VIDEOS);
-    const [page, setPage] = useState(1);
-
-    useEffect(() => {
-        // Simulating pagination - in real app you would fetch from API
-        // fetch(`https://api.example.com/videos?page=${page}`)
-        //     .then((res) => res.json())
-        //     .then((res) => {
-        //         setVideos((prev) => [...prev, ...res.data]);
-        //     })
-        //     .catch((err) => console.log(err));
-    }, [page]);
-
-    const handleLoadMore = () => {
-        setPage(page + 1);
-    };
+    const [videos] = useState(MOCK_VIDEOS);
 
     return (
         <div className={cx('wrapper')}>
@@ -79,9 +65,11 @@ function Home() {
                 <Video key={video.id} data={video} />
             ))}
 
-            {/* <button className={cx('load-more')} onClick={handleLoadMore}>
-                Xem thêm
-            </button> */}
+            <div className={cx('profile-cta')}>
+                <Button primary to="/@crisdevilgamer7">
+                    Xem trang cá nhân
+                </Button>
+            </div>
         </div>
     );
 }

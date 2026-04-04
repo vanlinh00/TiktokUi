@@ -1,0 +1,214 @@
+.wrapper {
+    padding: 32px 24px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    color: #fff;
+    width: 100%;
+}
+
+.profile-panel {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    flex-wrap: wrap;
+    padding: 30px 28px;
+    background-color: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
+}
+
+.avatar-wrapper {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid rgba(254, 44, 85, 0.2);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+}
+
+.avatar {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-info {
+    flex: 1;
+    min-width: 360px;
+}
+
+.name-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+}
+
+.author {
+    font-size: 3rem;
+    margin: 0;
+    letter-spacing: -0.03em;
+}
+
+.username {
+    font-size: 1.6rem;
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.verified {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+    border-radius: 50%;
+    background-color: #21d353;
+    color: #fff;
+    font-size: 1.2rem;
+}
+
+.stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    margin-bottom: 22px;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.stat-item strong {
+    font-size: 1.8rem;
+}
+
+.stat-item span {
+    color: rgba(255, 255, 255, 0.65);
+    font-size: 1.3rem;
+}
+
+.actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.follow-btn {
+    min-width: 150px;
+}
+
+.message-btn {
+    min-width: 140px;
+}
+
+.icon-btn {
+    min-width: 50px;
+    height: 50px;
+    padding: 0;
+    font-size: 1.4rem;
+    border-radius: 16px;
+    background-color: rgba(255, 255, 255, 0.06);
+}
+
+.bio {
+    font-size: 1.45rem;
+    color: rgba(255, 255, 255, 0.72);
+}
+
+.tabs-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.tabs,
+.filters {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.tab,
+.filter {
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 999px;
+    padding: 10px 18px;
+    background: rgba(255, 255, 255, 0.04);
+    color: rgba(255, 255, 255, 0.75);
+    cursor: pointer;
+    transition: all 0.18s ease;
+}
+
+.tab.active,
+.filter.active {
+    background: rgba(254, 44, 85, 0.2);
+    border-color: rgba(254, 44, 85, 0.45);
+    color: #fff;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 20px;
+}
+
+.grid-item {
+    border-radius: 24px;
+    overflow: hidden;
+    background-color: #131314;
+    position: relative;
+    min-height: 280px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.tag {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    z-index: 2;
+    padding: 6px 12px;
+    border-radius: 999px;
+    background: #fe2c55;
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.thumbnail {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(54, 129, 255, 0.9), rgba(254, 44, 85, 0.9));
+}
+
+.overlay {
+    position: absolute;
+    bottom: 16px;
+    left: 16px;
+    right: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.view-count {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 8px 12px;
+    border-radius: 999px;
+    font-size: 1.2rem;
+    color: #fff;
+}
+
+.view-count strong {
+    font-weight: 700;
+}

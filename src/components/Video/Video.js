@@ -2,7 +2,6 @@ import classNames from 'classnames/bind';
 import styles from './Video.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart, faCommentDots, faShare, faBookmark } from '@fortawesome/free-solid-svg-icons';
-import Button from '~/components/Button';
 
 const cx = classNames.bind(styles);
 
@@ -29,12 +28,6 @@ function Video({ data }) {
                     </div>
 
                     <div className={cx('action-bar')}>
-                        <div className={cx('action-item')}>
-                            <div className={cx('icon-circle')}>
-                                <FontAwesomeIcon icon={faHeart} />
-                            </div>
-                            <strong className={cx('count')}>{data.likes_count}</strong>
-                        </div>
                         <div className={cx('action-item')}>
                             <div className={cx('icon-circle')}>
                                 <FontAwesomeIcon icon={faHeart} />
