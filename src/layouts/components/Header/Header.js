@@ -7,6 +7,7 @@ import {
     faEllipsisVertical,
     faGear,
     faKeyboard,
+    fas,
     faSignOut,
     faUser,
 } from '@fortawesome/free-solid-svg-icons';
@@ -22,6 +23,7 @@ import Menu from '~/components/Popper/Menu';
 import { InboxIcon, MessageIcon, UploadIcon } from '~/components/Icons';
 import Image from '~/components/Image';
 import Search from '../Search';
+import { useAuth } from '~/contexts/AuthContext';
 
 const cx = classNames.bind(styles);
 
@@ -57,8 +59,8 @@ const MENU_ITEMS = [
 ];
 
 function Header() {
+    //const { currentUser, logout } = true; // useAuth();
     const currentUser = true;
-
     // Handle logic
     const handleMenuChange = (menuItem) => {
         switch (menuItem.type) {
