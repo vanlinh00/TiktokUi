@@ -1,90 +1,91 @@
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import classNames from 'classnames/bind';
+
 import styles from './Login.module.scss';
 import Button from '~/components/Button';
+import { loginService } from '~/services/authService';
 
 const cx = classNames.bind(styles);
 
 function Login() {
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
     const navigate = useNavigate();
+
+    // UI State
+    const [credentials, setCredentials] = useState({ username: '', password: '' });
+    const [isLoading, setIsLoading] = useState(false);
+    const [error, setError] = useState(null);
+
+    // Atomic update for input fields
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setCredentials((prev) => ({ ...prev, [name]: value }));
+        if (error) setError(null); // Clear error when user starts typing again
+    };
 
     const handleLogin = async (e) => {
         e.preventDefault();
+        setIsLoading(true);
+        setError(null);
 
         try {
-            // URL points to port 8080 as per your CURL
-            const response = await fetch('http://localhost:8080/oauth/token', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    // This is the Client Authorization from your CURL
-                    Authorization: 'Basic bW9iaWxlLWNsaWVudDptb2JpbGUtY2xpZW50',
-                },
-                body: JSON.stringify({
-                    username: username,
-                    password: password,
-                    deviceToken: 'deviceTokendd', // Required by your API
-                }),
-            });
+            const result = await loginService(credentials.username, credentials.password);
 
-            const result = await response.json();
+            if (result?.success && result?.data?.access_token) {
+                const { access_token } = result.data;
 
-            // OAuth2 usually returns 'access_token'
-            const token = result.access_token || result.token;
-            // FIX: Access access_token through the 'data' property
-            if (result.success && result.data && result.data.access_token) {
-                const token = result.data.access_token;
+                // Persistence
+                localStorage.setItem('token', access_token);
+                localStorage.setItem('user', JSON.stringify({ loginId: credentials.username }));
 
-                // 1. Save Token
-                localStorage.setItem('token', token);
-
-                // 2. Save User Info
-                const userObj = { loginId: username }; // You can add more data here if needed
-                localStorage.setItem('user', JSON.stringify(userObj));
-
-                // 3. Success! Redirect
-                navigate('/');
+                // Standard practice: Navigate to home.
+                // Note: Instead of window.location.reload(),
+                // your App.js should react to the localStorage/AuthContext change.
+                navigate('/', { replace: true });
                 window.location.reload();
             } else {
-                // If success is false or data is missing
-                alert('Login failed: ' + (result.message || 'Invalid credentials'));
+                throw new Error(result?.message || 'Invalid server response');
             }
-        } catch (error) {
-            console.error('Login error:', error);
-            alert('Could not connect to the server. Please check if your backend is running.');
+        } catch (err) {
+            setError(err.message);
+        } finally {
+            setIsLoading(false);
         }
     };
 
     return (
         <div className={cx('wrapper')}>
-            <form className={cx('login-form')} onSubmit={handleLogin}>
+            <form className={cx('login-form')} onSubmit={handleLogin} noValidate>
                 <h2 className={cx('title')}>Log in</h2>
 
+                {error && <div className={cx('error-banner')}>{error}</div>}
+
                 <div className={cx('input-group')}>
                     <input
+                        name="username"
                         type="text"
                         placeholder="Username"
-                        value={username}
-                        onChange={(e) => setUsername(e.target.value)}
+                        value={credentials.username}
+                        onChange={handleChange}
+                        disabled={isLoading}
                         required
                     />
                 </div>
 
                 <div className={cx('input-group')}>
                     <input
+                        name="password"
                         type="password"
                         placeholder="Password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
+                        value={credentials.password}
+                        onChange={handleChange}
+                        disabled={isLoading}
                         required
                     />
                 </div>
 
-                <Button primary large className={cx('login-btn')} type="submit">
-                    Log in
+                <Button primary large className={cx('login-btn')} type="submit" disabled={isLoading}>
+                    {isLoading ? 'Authenticating...' : 'Log in'}
                 </Button>
             </form>
         </div>
