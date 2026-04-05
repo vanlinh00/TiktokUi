@@ -117,9 +117,22 @@ function Profile() {
                     ))}
                 </div>
             ) : (
-                <div className={cx('empty-state')}>
-                    <p>No {activeTab.toLowerCase()} yet.</p>
+                <div className={cx('grid')}>
+                    {videos.map((video) => (
+                        <div key={video.id} className={cx('grid-item')}>
+                            {video.pinned && <span className={cx('tag')}>Pinned</span>}
+                            <div className={cx('thumbnail')} />
+                            <div className={cx('overlay')}>
+                                <span className={cx('view-count')}>
+                                    <strong>{video.views}</strong>
+                                </span>
+                            </div>
+                        </div>
+                    ))}
                 </div>
+                // <div className={cx('empty-state')}>
+                //     <p>No {activeTab.toLowerCase()} yet.</p>
+                // </div>
             )}
         </div>
     );
