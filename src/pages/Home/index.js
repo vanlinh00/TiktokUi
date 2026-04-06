@@ -64,12 +64,6 @@ function Home() {
             {videos.map((video) => (
                 <Video key={video.id} data={video} />
             ))}
-
-            <div className={cx('profile-cta')}>
-                <Button primary to="/@crisdevilgamer7">
-                    Xem trang cá nhân
-                </Button>
-            </div>
         </div>
     );
 }

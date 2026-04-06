@@ -10,7 +10,7 @@ import Following from '~/pages/Following';
 import Profile from '~/pages/Profile';
 import Upload from '~/pages/Upload';
 import Search from '~/pages/Search';
-import Live from '~/pages/Home/Live';
+import Live from '~/pages/Live';
 import NewHome from '~/pages/NewHome';
 import Chat from '~/pages/Chat';
 import Watch from '~/pages/Watch';
